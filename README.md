@@ -10,6 +10,7 @@ Takes an $N\times S$ matrix class containing functional trajectories, X, and a g
 ```
 wilcox.fda(X = X, G = G)
 ```
+Both return objects of class htest.
 
  ## Doubly ranked KW
  Perform doubly ranked Kruskal-Wallis test on functional data using
@@ -20,3 +21,4 @@ kruskal.fda(X ~ G)
 ```
 kruskal.fda(X = X, G = G)
 ```
+Both return objects of class htest.
