@@ -38,4 +38,7 @@ gmean(x, na.rm = TRUE)
 to remove and calculate the geometric mean.
 
 ## Simulations folder
-Files included were used for the simulations described in [Meyer (2023)](https://arxiv.org/abs/2306.14761). The files are named with "mww" or "kw" first, depending on the test used. Then the true curve setting, "phi" or "gamma." Next is the the error distribution, "g" for Gaussian, "l" for log-normal, or "t" for t with 2 df. Files ending with "size" are for the type I error simulation.
+This folder contains files that were used for the power and type I error simulations described in [Meyer (2023)](https://arxiv.org/abs/2306.14761). The files are named with "mww" or "kw" first, depending on the test used. Then the true curve setting, "phi" or "gamma." Next is the the error distribution, "g" for Gaussian, "l" for log-normal, or "t" for t with 2 df. Files ending with "size" are for the type I error simulation.
+
+## Illustrations folder
+This folder contains a script and dataset for the data illustrations described in [Meyer (2023)](https://arxiv.org/abs/2306.14761). The script is titled Illustrations.R. The code in this file runs the doubly ranked tests on the data and produces graphics of the functional curves. Of the three data examples, two are available in packages on CRAN. The third is in the file driving_requests.txt, also in this folder.
