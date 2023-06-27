@@ -6,7 +6,7 @@
 ```
 wilcox.fda(X ~ G)
 ```
-Takes an $N\times S$ matrix class containing functional trajectories, X, and a grouping vector, G. Defaults to using geometric mean, a sufficient statistic, to summarize the ranks of curves over time as decribed in [Meyer (2023)](https://arxiv.org/abs/2306.14761). Arugments can have the formula class, X ~ G as shown, or be of the form X = , G = .
+Takes an $N\times S$ matrix class containing functional trajectories, X, and a grouping vector, G. Defaults to using geometric mean, a sufficient statistic, to summarize the ranks of curves over time as decribed in [Meyer (2023)](https://arxiv.org/abs/2306.14761). Arugments can have the formula class, X ~ G as shown above, or be of the form X = , G = .
 ```
 wilcox.fda(X = X, G = G)
 ```
@@ -17,8 +17,14 @@ Both return objects of class htest.
 ```
 kruskal.fda(X ~ G)
 ```
- Takes an $N\times S$ matrix class containing functional trajectories, X, and a grouping vector, G. Defaults to using geometric mean, a sufficient statistic, to summarize the ranks of curves over time as decribed in [Meyer (2023)](https://arxiv.org/abs/2306.14761). Arugments can have the formula class, X ~ G as shown, or be of the form X = , G = .
+ Takes an $N\times S$ matrix class containing functional trajectories, X, and a grouping vector, G. Defaults to using geometric mean, a sufficient statistic, to summarize the ranks of curves over time as decribed in [Meyer (2023)](https://arxiv.org/abs/2306.14761). Arugments can have the formula class, X ~ G as shown above, or be of the form X = , G = .
 ```
 kruskal.fda(X = X, G = G)
 ```
 Both return objects of class htest.
+
+## Geometric mean
+ Take the geometric mean of a vector of data, x. The argument
+```
+gmean(x)
+```
