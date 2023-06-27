@@ -38,4 +38,4 @@ gmean(x, na.rm = TRUE)
 to remove and calculate the geometric mean.
 
 ## Simulations folder
-Files included were used for the simulations described in [Meyer (2023)](https://arxiv.org/abs/2306.14761). The files are named with "mww" or "kw" first, depending on the test used. Then the true curve setting, "phi" or "gamma." Finally, the error distribution.
+Files included were used for the simulations described in [Meyer (2023)](https://arxiv.org/abs/2306.14761). The files are named with "mww" or "kw" first, depending on the test used. Then the true curve setting, "phi" or "gamma." Next is the the error distribution, "g" for Gaussian, "l" for log-normal, or "t" for t with 2 df. Files ending with "size" are for the type I error simulation.
