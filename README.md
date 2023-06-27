@@ -24,7 +24,12 @@ kruskal.fda(X = X, G = G)
 Both return objects of class htest.
 
 ## Geometric mean
- Take the geometric mean of a vector of data, x. The argument
+ Take the geometric mean of a vector of data, x:
 ```
 gmean(x)
 ```
+For data with missing values, use 
+```
+gmean(x, na.rm = TRUE)
+```
+to remove and calculate the geometric mean.
