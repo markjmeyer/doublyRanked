@@ -48,8 +48,8 @@ for(i in 1:length(rho)){
         
         ###### doubly ranked test with geometric mean ######
         drt   <- kruskal.fda(Y ~ G, method = 'geo.rank')
-        pvals[i, k, l, b] <- drt$wc.test$p.value
-        stats[i, k, l, b] <- drt$wc.test$statistic
+        pvals[i, k, l, b] <- drt$p.value
+        stats[i, k, l, b] <- drt$statistic
         
         ## simulation controls ##
         iter <- iter + 1
