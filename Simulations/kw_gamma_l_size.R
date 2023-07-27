@@ -24,7 +24,6 @@ iter <- 0
 
 for(i in 1:length(rho)){
   for(k in 1:length(S)){
-    # i <- k <- 1
     CovStr  <- matrix(0, nrow = S[k], ncol = S[k])
     for(r in 1:S[k]){
       for(c in 1:S[k]){
