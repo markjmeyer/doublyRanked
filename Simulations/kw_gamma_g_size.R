@@ -64,6 +64,5 @@ for(i in 1:length(rho)){
 }
 
 #### save output ####
-setwd('~/Dropbox/Research/Drafts/Wilcoxon FDA/Simulations/Gaussian/gamma/KW/Size')
 filename <- paste('kw_pnorm_g_size_', n1, '_fpca.RData', sep = '')
 save.image(file = filename)
