@@ -67,7 +67,5 @@ for(i in 1:length(rho)){
 }
 
 #### save output ####
-fname <- paste('/Users/mjm556/Dropbox/Research/Drafts/Wilcoxon FDA/Simulations/MVT/gamma/KW/N1_', n1, sep = '')
-setwd(fname)
 filename <- paste('kw_gamma_t_', n1, '_r_fpca.RData', sep = '')
 save.image(file = filename)
