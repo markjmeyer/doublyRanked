@@ -64,6 +64,5 @@ for(i in 1:length(rho)){
 }
 
 #### save output ####
-setwd('~/Dropbox/Research/Drafts/Wilcoxon FDA/Simulations/LogNormal/gamma/KW/Size')
 filename <- paste('kw_pnorm_l_size_', n1, '_fpca.RData', sep = '')
 save.image(file = filename)
