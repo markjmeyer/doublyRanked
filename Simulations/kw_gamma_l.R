@@ -12,7 +12,7 @@ one   <- TRUE # TRUE, FALSE
 S     <- c(40, 80, 160, 320)
 sc    <- seq(0.99, 0.5, by = -0.02)
 B     <- 500
-sig   <- 0.05 # 0.5
+sig   <- 0.05
 rho   <- c(0.25, 0.5, 0.75)
 dots  <- 1000
 up    <- 25000
@@ -25,7 +25,6 @@ iter <- 0
 
 for(i in 1:length(rho)){
   for(k in 1:length(S)){
-    # i <- k <- 1
     CovStr  <- matrix(0, nrow = S[k], ncol = S[k])
     for(r in 1:S[k]){
       for(c in 1:S[k]){
@@ -34,8 +33,6 @@ for(i in 1:length(rho)){
     }
     for(l in 1:length(sc)){
       for(b in 1:B){
-        # l <- b <- 1
-        # sts <- proc.time()
         set.seed(b)
         s     <- seq(0, 1, length = S[k])
         mu1   <- dgamma(s, 10, 30)/max(dgamma(s, 10, 30))
