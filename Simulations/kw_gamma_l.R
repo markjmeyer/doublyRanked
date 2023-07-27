@@ -3,7 +3,7 @@ library(refund)
 library(numbers)
 library(xtable)
 library(compositions)
-source('~/Dropbox/Research/Drafts/Wilcoxon FDA/wilcox.fda.R')
+source('wilcox.fda.R')
 
 #### specifications ####
 n1    <- n2   <-  n3 <- 10
@@ -14,7 +14,6 @@ sc    <- seq(0.99, 0.5, by = -0.02)
 B     <- 500
 sig   <- 0.05 # 0.5
 rho   <- c(0.25, 0.5, 0.75)
-# n1 <- 5; sn <- 1.25; S <- 160; sc <- 0.005
 dots  <- 1000
 up    <- 25000
 
