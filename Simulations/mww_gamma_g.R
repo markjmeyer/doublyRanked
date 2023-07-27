@@ -5,6 +5,13 @@ library(numbers)
 library(xtable)
 source('wilcox.fda.R')
 
+dt_check <- try(library(depthTests), silent = TRUE)
+if(class(dt_check) == "try-error"){
+  require(devtools)
+  devtools::install_github("julia-wrobel/depthTests")
+}
+library(depthTests)
+
 #### specifications ####
 n1    <- n2 <- 10
 N     <- n1 + n2
@@ -45,13 +52,13 @@ for(i in 1:length(rho)){
         
         ###### doubly ranked test ######
         drt   <- wilcox.fda(Y ~ G, method = 'geo.rank')
-        pvals[i, k, l, b, 1] <- drt$wc.test$p.value
-        stats[i, k, l, b, 1] <- drt$wc.test$statistic
+        pvals[i, k, l, b, 1] <- drt$p.value
+        stats[i, k, l, b, 1] <- drt$statistic
         
         ###### MBD rank sum test ######
-        mrs   <- wilcox.fda(Y ~ G, method = 'mbd.rank')
-        pvals[i, k, l, b, 2] <- mrs$wc.test$p.value
-        stats[i, k, l, b, 2] <- mrs$wc.test$statistic
+        mrs   <- rankSumTest(X1, X2, floor(n1/2), max(floor(n2/2)-1, 2))
+        pvals[i, k, l, b, 2] <- mrs$p.value
+        stats[i, k, l, b, 2] <- mrs$statistic
         
         ## simulation controls ##
         iter <- iter + 1
