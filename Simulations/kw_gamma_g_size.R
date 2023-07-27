@@ -17,8 +17,8 @@ rho   <- c(0.25, 0.5, 0.75)
 dots  <- 1000
 up    <- 25000
 
-pvals   <- array(NA, dim = c(length(rho), length(S), B, 2))
-stats   <- array(NA, dim = c(length(rho), length(S), B, 2))
+pvals   <- array(NA, dim = c(length(rho), length(S), B))
+stats   <- array(NA, dim = c(length(rho), length(S), B))
 
 ##### group mean functions and covariance ####
 iter <- 0
@@ -53,27 +53,8 @@ for(i in 1:length(rho)){
       
       ###### doubly ranked test with geometric mean ######
       drt   <- kruskal.fda(Y ~ G, method = 'geo.rank')
-      pvals[i, k, b, 1] <- drt$wc.test$p.value
-      stats[i, k, b, 1] <- drt$wc.test$statistic
-      
-      # fdrt  <- kruskal.fda(Xs2 ~ G, method = 'geo.rank')
-      # pvals[i, k, b, 2] <- fdrt$wc.test$p.value
-      # stats[i, k, b, 2] <- fdrt$wc.test$statistic
-      
-      ###### doubly ranked test with arithmetic mean ######
-      # ars   <- kruskal.fda(X ~ G, method = 'avg.rank')
-      # pvals[i, k, b, 3] <- ars$wc.test$p.value
-      # stats[i, k, b, 3] <- ars$wc.test$statistic
-      # 
-      # frs   <- kruskal.fda(Xs2 ~ G, method = 'avg.rank')
-      # pvals[i, k, b, 4] <- frs$wc.test$p.value
-      # stats[i, k, b, 4] <- frs$wc.test$statistic
-      
-      ###### random projections based test ######
-      rpt   <- kruskal.fda(X ~ G, method = 'rand.proj')
-      pvals[i, k, b, 2] <- rpt$wc.test$p.value
-      stats[i, k, b, 2] <- rpt$wc.test$statistic
-      # ets <- proc.time() - sts
+      pvals[i, k, b] <- drt$wc.test$p.value
+      stats[i, k, b] <- drt$wc.test$statistic
       
       ## simulation controls ##
       iter <- iter + 1
@@ -94,19 +75,9 @@ setwd('~/Dropbox/Research/Drafts/Wilcoxon FDA/Simulations/Gaussian/gamma/KW/Size
 filename <- paste('kw_pnorm_g_size_', n1, '_fpca.RData', sep = '')
 save.image(file = filename)
 
-tabM  <- apply(pvals < 0.05, c(1,2,4), mean)
+tabM  <- apply(pvals < 0.05, c(1,2), mean)
 
 # [c(1, 2, 4, 5, 3, 6)]
-tab <- matrix(apply(apply(pvals < 0.05, c(1,2,4), mean), 3, mean), nrow = 1)
+tab <- matrix(apply(apply(pvals < 0.05, c(1,2), mean), 3, mean), nrow = 1)
 xtable(tab, digits = 4)
-
-for(m in 1:3){
-  print(xtable(tabM[,,m], digits = 4))
-}
-
-fname <- paste('kw_pnorm_', n1,'_size_c.pdf', sep = '')
-pdf(fname)
-boxplot(cbind(c(tabM[,,1]), c(tabM[,,2]) ), col = c('forestgreen', 'gold2'),
-        names = c('Doubly Ranked', 'Random Projections'), main = paste('n1 =', n1), ylab = 'size')
-dev.off()
 
